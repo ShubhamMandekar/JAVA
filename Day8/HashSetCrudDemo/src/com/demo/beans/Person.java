@@ -1,6 +1,6 @@
 package com.demo.beans;
 
-public class Person implements Comparable<Person>{
+public class Person implements Comparable<Employee>{
 	private int pid;
 	private String pname;
 	private String mobile;
@@ -9,13 +9,6 @@ public class Person implements Comparable<Person>{
 		//System.out.println("in person default constructor");
 		
 	}
-	public Person(int id) {
-		this.pid=id;
-		
-	}
-	public boolean equals(Object ob) {
-		return this.pid==((Person)ob).pid;
-	}
 	public Person(int pid, String pname, String mobile, String email) {
 		//System.out.println("in person paremterised  constructor");
 		this.pid = pid;
@@ -23,6 +16,18 @@ public class Person implements Comparable<Person>{
 		this.mobile = mobile;
 		this.email = email;
 	}
+	public Person(int id) {
+		this.pid=id;
+	}
+	public int hashCode() {
+		System.out.println("in hash code of person --->"+pid);
+		return pid;
+	}
+	public boolean equals(Object obj) {
+		System.out.println("in equals of person --->"+pid+"----"+((Person)obj).pid);
+		return this.pid==((Person)obj).pid;
+	}
+	
 	public int getPid() {
 		return pid;
 	}
@@ -47,19 +52,13 @@ public class Person implements Comparable<Person>{
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
-	
 	@Override
 	public String toString() {
 		return "Person [pid=" + pid + ", pname=" + pname + ", mobile=" + mobile + ", email=" + email + "]";
 	}
-	
-	
-	
 	@Override
-	public int compareTo(Person o) {
-		System.out.println("In Person compareTo Method "+this.pname+"----"+o.pname);
-		return this.pname.compareTo(o.pname);
+	public int compareTo(Employee o) {
+		return this.pname.compareTo(((Person)o).pname);
 	}
 	
 

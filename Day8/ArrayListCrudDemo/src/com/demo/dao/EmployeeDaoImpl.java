@@ -51,7 +51,9 @@ public class EmployeeDaoImpl implements EmployeeDao{
 			else if (e instanceof ContractEmployee) {
 				((ContractEmployee) e).setCharges(sal);
 			}else {
-				//vendor
+				(e instanceof Vendor){
+					((Vendor)e).setAmount(sal);
+				}
 			}
 			return true;
 		}
@@ -61,7 +63,7 @@ public class EmployeeDaoImpl implements EmployeeDao{
 	public List<Employee> sortByName() {
 		List<Employee> elst=new ArrayList<>();
 		for(Employee e:elist) {
-			elst.add(e);
+			elst.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         add(e);
 		}
 		//Collections.copy( elst,elist);
 		//Collections.sort(elst,null);
